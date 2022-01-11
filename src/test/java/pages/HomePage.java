@@ -2,16 +2,10 @@ package pages;
 
 import org.openqa.selenium.WebDriver;
 
-public class HomePage {
-    private WebDriver driver;
-    private final String URL = "https://lmslite47vr.demo.mirapolis.ru/mira/";
-
+public class HomePage extends Page {
     public HomePage(WebDriver driver) {
-        this.driver = driver;
-    }
-
-    public void open() {
-        driver.get(URL);
+        super(driver);
+        URL = "https://lmslite47vr.demo.mirapolis.ru/mira/";
     }
 
     public boolean atPage() {

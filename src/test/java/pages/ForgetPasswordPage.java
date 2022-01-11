@@ -3,17 +3,10 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class ForgetPasswordPage {
-    private WebDriver driver;
-    private final String URL =
-            "https://lmslite47vr.demo.mirapolis.ru/mira//Do?doaction=Go&s=ysSnRhdjQWRFFydAaU3L&id=0&type=remindpassword";
-
+public class ForgetPasswordPage extends Page {
     public ForgetPasswordPage(WebDriver driver) {
-        this.driver = driver;
-    }
-
-    public void open() {
-        driver.get(URL);
+        super(driver);
+        URL = "https://lmslite47vr.demo.mirapolis.ru/mira//Do?doaction=Go&s=ysSnRhdjQWRFFydAaU3L&id=0&type=remindpassword";
     }
 
     public boolean atPage() {

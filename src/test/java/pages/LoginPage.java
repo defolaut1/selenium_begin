@@ -3,16 +3,10 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class LoginPage {
-    private WebDriver driver;
-    private final String URL = "https://lmslite47vr.demo.mirapolis.ru/mira";
-
+public class LoginPage extends Page {
     public LoginPage(WebDriver driver) {
-        this.driver = driver;
-    }
-
-    public void open() {
-        driver.get(URL);
+        super(driver);
+        URL = "https://lmslite47vr.demo.mirapolis.ru/mira";
     }
 
     public boolean atPage() {

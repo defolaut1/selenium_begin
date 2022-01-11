@@ -44,6 +44,7 @@ public class TestLogin {
     public void enterValidLoginAndValidPassword() {
         loginPage.open();
         Assert.assertTrue(loginPage.atPage());
+
         loginPage.enterLogin("fominaelena");
         loginPage.enterPassword("1P73BP4Z");
         loginPage.clickLogin();
@@ -56,38 +57,38 @@ public class TestLogin {
      * Is it normal behavior to throw alert? And handle it like this?
      * Check specs, ask PM or TTL about it
      */
+    public boolean isAutorizationFailed() {
+        try {
+            driver.findElement(By.xpath("//a[contains(@class, 'news')][1]"));
+            return !homePage.atPage();
+        } catch (UnhandledAlertException e) {
+            System.out.println("Alert text: " + e.getAlertText());
+            return true;
+        }
+    }
+
     @Test
     public void enterValidLoginAndInvalidPassword() {
         loginPage.open();
         Assert.assertTrue(loginPage.atPage());
+
         loginPage.enterLogin("fominaelena");
         loginPage.enterPassword("incorrect123");
         loginPage.clickLogin();
 
-        try {
-            driver.findElement(By.xpath("//a[contains(@class, 'news')][1]"));
-            Assert.assertTrue(!homePage.atPage());
-        } catch (UnhandledAlertException e) {
-            System.out.println("Alert text: " + e.getAlertText());
-            Assert.assertTrue(true);
-        }
+        Assert.assertTrue(isAutorizationFailed());
     }
 
     @Test
     public void enterValidLoginAndEmptyPassword() {
         loginPage.open();
         Assert.assertTrue(loginPage.atPage());
+
         loginPage.enterLogin("fominaelena");
         loginPage.enterPassword("");
         loginPage.clickLogin();
 
-        try {
-            driver.findElement(By.xpath("//a[contains(@class, 'news')][1]"));
-            Assert.assertTrue(!homePage.atPage());
-        } catch (UnhandledAlertException e) {
-            System.out.println("Alert text: " + e.getAlertText());
-            Assert.assertTrue(true);
-        }
+        Assert.assertTrue(isAutorizationFailed());
     }
 
     @Test
@@ -98,13 +99,7 @@ public class TestLogin {
         loginPage.enterPassword("1P73BP4Z");
         loginPage.clickLogin();
 
-        try {
-            driver.findElement(By.xpath("//a[contains(@class, 'news')][1]"));
-            Assert.assertTrue(!homePage.atPage());
-        } catch (UnhandledAlertException e) {
-            System.out.println("Alert text: " + e.getAlertText());
-            Assert.assertTrue(true);
-        }
+        Assert.assertTrue(isAutorizationFailed());
     }
 
     @Test
@@ -115,19 +110,14 @@ public class TestLogin {
         loginPage.enterPassword("");
         loginPage.clickLogin();
 
-        try {
-            driver.findElement(By.xpath("//a[contains(@class, 'news')][1]"));
-            Assert.assertTrue(!homePage.atPage());
-        } catch (UnhandledAlertException e) {
-            System.out.println("Alert text: " + e.getAlertText());
-            Assert.assertTrue(true);
-        }
+        Assert.assertTrue(isAutorizationFailed());
     }
 
     @Test
     public void clickForgetPasswordAndEnterValidLogin() {
         loginPage.open();
         Assert.assertTrue(loginPage.atPage());
+
         loginPage.clickForgetPassword();
 
         try {
@@ -136,6 +126,7 @@ public class TestLogin {
 
             forgetPasswordPage.enterLoginOrEmail("fominaelena");
             forgetPasswordPage.clickSend();
+
             Assert.assertTrue(
                     driver.findElement(By.xpath("//div[contains(text(), 'инструкция')]")).isDisplayed()
             );
@@ -149,6 +140,7 @@ public class TestLogin {
     public void clickForgetPasswordAndEnterInvalidLogin() {
         loginPage.open();
         Assert.assertTrue(loginPage.atPage());
+
         loginPage.clickForgetPassword();
 
         try {
@@ -157,6 +149,7 @@ public class TestLogin {
 
             forgetPasswordPage.enterLoginOrEmail("justlogin777");
             forgetPasswordPage.clickSend();
+            
             Assert.assertTrue(
                     driver.findElement(By.xpath("//div[contains(text(), 'не найден')]")).isDisplayed()
             );
