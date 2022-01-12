@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5d9382ff-637f-4f86-8891-a61516fe6537" name="Default Changelist" comment="" />
+    <list default="true" id="5d9382ff-637f-4f86-8891-a61516fe6537" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +50,14 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.TestLogin">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="TestTaskMirapolis" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="TestLogin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="TestTaskMirapolis" />
       <extension name="coverage">
@@ -81,6 +91,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.TestLogin" />
         <item itemvalue="JUnit.TestLogin.clickForgetPasswordAndEnterInvalidLogin" />
       </list>
@@ -100,6 +111,8 @@
       <workItem from="1640794981872" duration="4029000" />
       <workItem from="1641832841582" duration="325000" />
       <workItem from="1641901094478" duration="1466000" />
+      <workItem from="1641927623420" duration="807000" />
+      <workItem from="1641983488800" duration="669000" />
     </task>
     <servers />
   </component>
@@ -111,7 +124,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
